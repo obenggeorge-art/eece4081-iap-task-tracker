@@ -1,0 +1,23 @@
+# Python virtual environment
+.venv/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# Django local database
+db.sqlite3
+*.sqlite3
+
+# pytest cache
+.pytest_cache/
+
+# Environment variables
+.env
+
+# VS Code local settings
+.vscode/
+
+# Operating system files
+.DS_Store
+Thumbs.db
