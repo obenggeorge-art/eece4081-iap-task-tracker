@@ -109,3 +109,38 @@ The AI identified some ideas that I had not clearly considered, including empty 
 ### Verification
 
 The final requirements were manually compared with the GitHub Copilot response. The differences, omissions, inventions, and useful AI suggestions are documented in `AI_ELICITATION_AUDIT.md`.
+## IAP M3 — Domain Model and AI Critique
+
+### AI Tool Used
+GitHub Copilot in Visual Studio Code.
+
+### Prompt Given to AI
+I asked GitHub Copilot to review my eight user stories and three non-functional requirements from IAP M2 and generate a domain-focused class diagram for my Student Task Tracker application.
+
+I instructed the AI to explain its assumptions and not modify my project files.
+
+### AI Response
+The AI generated a class diagram containing Student, Task, TaskType, and Priority.
+
+It also suggested relationships between Student and Task, Task and TaskType, and Task and Priority.
+
+I saved the original response in `AI_DOMAIN_MODEL_DRAFT.md` before making my own changes.
+
+### Changes I Made
+1. Removed the Student class because the application does not currently require student accounts.
+2. Removed the Student-to-Task relationship because it was based on an assumption.
+3. Kept Task as the main class with the required task information.
+4. Kept TaskType and Priority as enumerations.
+5. Simplified the model by removing the isOverdue operation from the diagram.
+
+### Reason for Changes
+I wanted the final model to follow my IAP M2 requirements without adding unnecessary classes or relationships.
+
+The application only needs to manage academic tasks at this stage.
+
+### Verification
+I compared the final diagram with my IAP M2 requirements and reviewed the differences between my model and the AI draft.
+
+I created the final diagram using Mermaid and exported it as a PNG image.
+
+The full critique is documented in `AI_MODEL_CRITIQUE.md`.
