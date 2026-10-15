@@ -144,3 +144,42 @@ I compared the final diagram with my IAP M2 requirements and reviewed the differ
 I created the final diagram using Mermaid and exported it as a PNG image.
 
 The full critique is documented in `AI_MODEL_CRITIQUE.md`.
+## IAP M4 — ADR-001
+
+### AI Prompt
+I asked ChatGPT to help me write an Architecture Decision Record for my Student Task Tracker. The decision was whether to keep or remove the Student class from my domain model. I asked for the context, decision, two alternatives, and positive and negative consequences.
+
+### AI Response Summary
+ChatGPT suggested removing the Student class because the current application does not require student accounts. It explained the advantages of a simpler domain model and the disadvantages of adding student accounts later.
+
+### My Decision
+I chose to remove the Student class and keep Task as the main class. This matches the decision I made during IAP M3.
+
+### Changes and Review
+I checked that the ADR explains why I made the decision, includes two alternatives, and describes what becomes harder because of my choice. I kept the decision consistent with my final domain model.
+
+### Verification
+I saved the decision in docs/adr/ADR-001.md. I will commit the ADR and this log to GitHub.
+## IAP M5 — Walking Skeleton and CI Setup
+
+### AI Prompt
+I asked ChatGPT to help me build a basic working version of my Student Task Tracker using Django. I also asked for help setting up automated tests and GitHub Actions so I could check whether my project works correctly.
+
+### AI Response Summary
+ChatGPT helped me understand how to connect the Django model, views, URLs, and HTML template. It also explained how to create tests using pytest and configure a GitHub Actions workflow to run the tests automatically.
+
+### My Changes and Decisions
+I worked on the Django project and connected the Task model to the web page. I fixed a TemplateDoesNotExist error by checking the template folder and Django settings. I also tested the application by adding an assignment and checking that it was saved in the database.
+
+I added automated tests and configured the CI workflow in `.github/workflows/ci.yml`.
+
+### Verification
+I ran `python -m pytest -v` in VS Code, and both tests passed.
+
+I also pushed my project to GitHub and checked the GitHub Actions results. The workflow completed successfully, including the Django system checks, database migrations, and automated tests.
+
+**GitHub Actions Evidence:**
+https://github.com/obenggeorge-art/eece4081-iap-task-tracker/actions/runs/38678345949/job/116236966333#step:17:2
+
+### What I Learned
+I learned how the different parts of a Django application work together. I also learned how automated testing and continuous integration help detect problems when changes are made to a project.
