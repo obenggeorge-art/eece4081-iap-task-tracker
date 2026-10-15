@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Student Task Tracker</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f4f6f8;
+        }
+
+        h1 {
+            color: #253858;
+        }
+
+        form, table {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        input, select, button {
+            padding: 10px;
+            margin: 5px;
+        }
+
+        button {
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Student Task Tracker</h1>
+    <p>Manage your assignments, exams, and projects.</p>
+
+    <h2>Add New Task</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <input type="text"
+               name="title"
+               placeholder="Task title"
+               required>
+
+        <select name="type" required>
+            <option value="">Select type</option>
+            <option value="Assignment">Assignment</option>
+            <option value="Exam">Exam</option>
+            <option value="Project">Project</option>
+            <option value="Other">Other</option>
+        </select>
+
+        <input type="date" name="dueDate" required>
+
+        <select name="priority" required>
+            <option value="">Select priority</option>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+        </select>
+
+        <button type="submit">Add Task</button>
+    </form>
+
+    <h2>My Tasks</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Type</th>
+                <th>Due Date</th>
+                <th>Priority</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for task in tasks %}
+            <tr>
+                <td>{{ task.title }}</td>
+                <td>{{ task.type }}</td>
+                <td>{{ task.dueDate }}</td>
+                <td>{{ task.priority }}</td>
+                <td>
+                    {% if task.isCompleted %}
+                        Completed
+                    {% else %}
+                        Pending
+                    {% endif %}
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5">No tasks added yet.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>
