@@ -183,3 +183,19 @@ https://github.com/obenggeorge-art/eece4081-iap-task-tracker/actions/runs/386783
 
 ### What I Learned
 I learned how the different parts of a Django application work together. I also learned how automated testing and continuous integration help detect problems when changes are made to a project.
+
+## M7 — Documented Refactor
+
+**AI tool used:** ChatGPT
+
+**Prompt summary:** I asked ChatGPT to review my Student Task Tracker code, identify a genuine code smell, and suggest a refactor that would preserve the application's behavior.
+
+**AI suggestion:** Extract the task-creation logic from `task_list()` into a helper function called `create_task_from_post()`.
+
+**Changes made:** I separated task creation from HTTP request handling in `tasks/views.py`. I preserved the original validation, database fields, redirect, and task ordering.
+
+**Verification:** I ran the same six tests before and after the refactor. All six passed both times.
+
+**Diff:** The changes are recorded in `M7_03_Refactor_Diff.txt`.
+
+**Reflection:** AI helped me identify a structural problem and suggest an improvement. I used the existing tests to check that the refactor did not change the tested behavior.
