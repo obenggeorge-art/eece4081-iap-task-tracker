@@ -199,3 +199,35 @@ I learned how the different parts of a Django application work together. I also 
 **Diff:** The changes are recorded in `M7_03_Refactor_Diff.txt`.
 
 **Reflection:** AI helped me identify a structural problem and suggest an improvement. I used the existing tests to check that the refactor did not change the tested behavior.
+## M8 — Structured Logging and Runbook Entry
+
+### AI Assistance
+
+I used ChatGPT to help understand structured logging in Django and how to implement it in my Student Task Tracker application. AI suggested using Python's built-in logging module, JSON formatting, and a unique request ID to trace task creation.
+
+I reviewed the suggested code, added it to my project, and verified that the application still worked.
+
+### Changes Made
+
+- Added a JSON formatter to `tasks/views.py`.
+- Added structured logging events for task creation and validation.
+- Generated a unique `request_id` for each task submission.
+- Included the created task's ID in the `task_created` event.
+- Created `M8_SAMPLE_LOGS.txt` to record the log output.
+- Created `M8_RUNBOOK.md` to document how to troubleshoot a task that does not appear after submission.
+
+### Testing and Verification
+
+I ran:
+
+`python manage.py test tasks -v 2`
+
+All six tests passed.
+
+I also started the Django server, created a task through the web application, and confirmed that the terminal produced four structured JSON log events with the same `request_id`.
+
+### Reflection
+
+Structured logging makes it easier to understand what happens when a user submits a task. The request ID helps connect related events, while the runbook provides clear troubleshooting steps for another developer.
+
+The AI suggestions were reviewed and tested before being used in the project.
