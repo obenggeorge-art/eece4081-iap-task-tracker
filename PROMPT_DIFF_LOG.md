@@ -231,3 +231,32 @@ I also started the Django server, created a task through the web application, an
 Structured logging makes it easier to understand what happens when a user submits a task. The request ID helps connect related events, while the runbook provides clear troubleshooting steps for another developer.
 
 The AI suggestions were reviewed and tested before being used in the project.
+## M9 — Dependency and License Audit
+
+Date: November 17, 2026
+
+AI tool: ChatGPT (OpenAI)
+
+Prompt/purpose:
+Used AI assistance to organize the dependency and
+license audit, identify compatibility risks, and
+prepare verification commands.
+
+Human verification:
+- Reviewed the project's dependency declarations.
+- Installed and ran pip-licenses.
+- Generated M9_LICENSE_REPORT.md.
+- Generated M9_INSTALLED_PACKAGES.txt.
+- Ran pip check with no broken requirements.
+- Ran pytest with all 6 tests passing.
+
+Changes:
+- Added IAP_M9_DEPENDENCY_LICENSE_AUDIT.md.
+- Added M9_LICENSE_REPORT.md.
+- Added M9_INSTALLED_PACKAGES.txt.
+
+Compatibility risk:
+Future changes to Python, Django, or related
+dependencies may introduce compatibility problems.
+Pinned versions and automated tests help reduce
+this risk.
